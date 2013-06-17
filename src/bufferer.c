@@ -9,7 +9,11 @@
 #define BUF_REM(HDL) (hdl->pos >= hdl->backing_len ? 0 : hdl->backing_len - hdl->pos)
 #define BUF_POS(HDL) (&hdl->backing[hdl->pos])
 
+/* Indicates whether or not the buffered memory currently points to a
+ * terminator. */
 static bool has_term(struct handle * hdl);
+
+/* Writes all data in the buffer and resets the positioning information. */
 static enum status flush(struct handle * hdl);
 
 enum status buf_init(

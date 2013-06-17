@@ -37,6 +37,7 @@ static void setup(void * p) {
   OBJ_ZERO(flush_pos);
 }
 
+/* Callbacks for the write function. */
 static enum status test_bad_write(void * param, const void * src, size_t len) {
   IGNORE(param);
   IGNORE(src);
@@ -54,6 +55,7 @@ static enum status test_write(void * param, const void * src, size_t len) {
   return status_ok;
 }
 
+/* Test cases. */
 TEST init_works(void) {
   enum status s = NORM_INIT(h);
 
@@ -215,6 +217,7 @@ TEST write_handles_failed_flush(void) {
   PASS();
 }
 
+/* Test suite. */
 SUITE(bufferer) {
   SET_SETUP(setup, NULL);
 

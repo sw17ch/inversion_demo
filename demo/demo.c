@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
+/* Prototype our output function. */
 static enum status output(
     void * fh,
     const void * buf,
@@ -12,7 +13,6 @@ static enum status output(
 int main(int argc, char * argv[]) {
   IGNORE(argc);
   IGNORE(argv);
-
 
   uint8_t backing[64];
   char term[] = "\n";
@@ -41,6 +41,8 @@ int main(int argc, char * argv[]) {
   return 0;
 }
 
+/* We're just using the standard `fwrite` call. We expect `param` to be the
+ * file handle in which to write the data. */
 static enum status output(
     void * param,
     const void * buf,
